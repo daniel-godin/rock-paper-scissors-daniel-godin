@@ -7,6 +7,8 @@ function getComputerChoice() {
     return gameArray[Math.floor((Math.random() * gameArray.length))];
 }
 const btn = document.querySelectorAll('button');
+let gameResult = document.getElementById('gameResult');
+let gameScore = document.getElementById('gameScore');
 
 btn.forEach((button) => {
     button.addEventListener('click', () => {
@@ -107,10 +109,10 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "Rock" && computerSelection === "Scissors" || 
         playerSelection === "Paper" && computerSelection === "Rock" ||
         playerSelection === "Scissors" && computerSelection === "Paper") {
-            return console.log(`playerWinsRound`);
+            return gameResult.textContent = `You Win, ${playerSelection} beats ${computerSelection}.`;
     } else if (playerSelection === computerSelection) {
-            return console.log(`tieRound`);
+        return gameResult.textContent = `You Tied! You Both Chose ${playerSelection}.`;
     } else {
-            return console.log(`computerWinsRound`);
+        return gameResult.textContent = `You Lose, ${computerSelection} beats ${playerSelection}.`;
     }
 }
