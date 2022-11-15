@@ -15,10 +15,40 @@ btn.forEach((button) => {
         let playerSelection = button.value; 
         let computerSelection = getComputerChoice();
 
-        let numberOfPlayerWins = 0;
-        let numberOfComputerWins = 0;
 
-        playRound(playerSelection, computerSelection);
+
+        for (let i = 0; i < 5; i++) {
+            playRound(playerSelection, computerSelection);
+
+            let numberOfPlayerWins = 0;
+            let numberOfComputerWins = 0;
+
+            gameScore.textContent = `Score: Player: ${numberOfPlayerWins} vs. Computer: ${numberOfComputerWins}.`;
+
+
+            if (playRound(playerSelection, computerSelection) === `playerWinsRound`) {
+                numberOfPlayerWins++;
+                return gameResult.textContent = `You Win, ${playerSelection} beats ${computerSelection}.`;
+            } else if (playRound(playerSelection, computerSelection) === `tieRound`) {
+                return gameResult.textContent = `You Tied! You Both Chose ${playerSelection}.`;
+            } else {
+                numberOfComputerWins++;
+                return gameResult.textContent = `You Lose, ${computerSelection} beats ${playerSelection}.`;
+            }
+        }
+
+        // checkScoreFunction(numberOfPlayerWins, numberOfComputerWins);
+
+        // function checkScoreFunction(numberOfPlayerWins, numberOfComputerWins) {
+        //     if (numberOfPlayerWins > numberOfComputerWins) {
+        //         return gameScore.textContent(`You win the game!  Player Score:${numberOfPlayerWins} vs. Computer Score:${numberOfComputerWins}.`);
+        //     } else if (numberOfComputerWins > numberOfPlayerWins) {
+        //         return gameScore.textContent(`You lose the game.  Computer Score:${numberOfComputerWins} vs. Player Score:${numberOfPlayerWins}.`);
+        //     } else {
+        //         return gameScore.textContent(`Tie Game!  Try Again!  Player Score:${numberOfPlayerWins} vs. Computer Score:${numberOfComputerWins}.`);
+        //     }
+        // }
+        
 
         // if (playRound(playerSelection, computerSelection) === `playerWinsRound`) {
         //     ++numberOfPlayerWins;
@@ -105,6 +135,18 @@ function game() {
 // }
 
 // Function to play a single round of the game Rock, Paper, Scissors.
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === "Rock" && computerSelection === "Scissors" || 
+        playerSelection === "Paper" && computerSelection === "Rock" ||
+        playerSelection === "Scissors" && computerSelection === "Paper") {
+            return playerWinsRound;
+    } else if (playerSelection === computerSelection) {
+        return tieGame;
+    } else {
+        return gameResult.textContent = `You Lose, ${computerSelection} beats ${playerSelection}.`;
+    }
+}
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "Rock" && computerSelection === "Scissors" || 
         playerSelection === "Paper" && computerSelection === "Rock" ||
