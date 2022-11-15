@@ -10,33 +10,29 @@ const btn = document.querySelectorAll('button');
 
 btn.forEach((button) => {
     button.addEventListener('click', () => {
-        let computerSelection = getComputerChoice();
         let playerSelection = button.value; 
+        let computerSelection = getComputerChoice();
 
-        console.log(computerSelection);
+        let numberOfPlayerWins = 0;
+        let numberOfComputerWins = 0;
+
+        playRound(playerSelection, computerSelection);
+
+        // if (playRound(playerSelection, computerSelection) === `playerWinsRound`) {
+        //     ++numberOfPlayerWins;
+        //     console.log(`You won this round!  ${playerSelection} beats ${computerSelection}.  Score: Player: ${numberOfPlayerWins} vs. Computer: ${numberOfComputerWins}.`)
+        // } else if (playRound(playerSelection, computerSelection) === `tieRound`) {
+        //     console.log(`You tied this round.  You both chose ${playerSelection}.  Score: Player: ${numberOfPlayerWins} vs. Computer: ${numberOfComputerWins}.`); 
+        // } else {
+        //     ++numberOfComputerWins;
+        //     console.log(`You lose this round.  ${computerSelection} beats ${playerSelection}.  Score: Player: ${numberOfPlayerWins} vs. Computer: ${numberOfComputerWins}.`);
+        // }
         console.log(playerSelection);
+        console.log(computerSelection);
+        
         
     });
 });
-
-
-
-
-
-
-    // playRound(playerSelection, computerSelection);
-    
-//     if (playRound(playerSelection, computerSelection) === `playerWinsRound`) {
-//         ++numberOfPlayerWins;
-//         console.log(`You won this round!  ${playerSelection} beats ${computerSelection}.  Score: Player: ${numberOfPlayerWins} vs. Computer: ${numberOfComputerWins}.`)
-//     } else if (playRound(playerSelection, computerSelection) === `tieRound`) {
-//         console.log(`You tied this round.  You both chose ${playerSelection}.  Score: Player: ${numberOfPlayerWins} vs. Computer: ${numberOfComputerWins}.`); 
-//     } else {
-//         ++numberOfComputerWins;
-//         console.log(`You lose this round.  ${computerSelection} beats ${playerSelection}.  Score: Player: ${numberOfPlayerWins} vs. Computer: ${numberOfComputerWins}.`);
-//     }
-
-// });
 
 // Function to play Rock, Paper, Scissors 5 times.  Keep Track Of Number of Wins.  Display Number of Wins.  Use prompt() to get user input and verify it is one of the allowable answers.
 function game() {
@@ -108,13 +104,13 @@ function game() {
 
 // Function to play a single round of the game Rock, Paper, Scissors.
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === "rock" && computerSelection === "scissors" || 
-        playerSelection === "paper" && computerSelection === "rock" ||
-        playerSelection === "scissors" && computerSelection === "paper") {
-            return `playerWinsRound`;
+    if (playerSelection === "Rock" && computerSelection === "Scissors" || 
+        playerSelection === "Paper" && computerSelection === "Rock" ||
+        playerSelection === "Scissors" && computerSelection === "Paper") {
+            return console.log(`playerWinsRound`);
     } else if (playerSelection === computerSelection) {
-            return `tieRound`;
+            return console.log(`tieRound`);
     } else {
-            return `computerWinsRound`;
+            return console.log(`computerWinsRound`);
     }
 }
