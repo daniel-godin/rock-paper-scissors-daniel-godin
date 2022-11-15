@@ -10,18 +10,21 @@ const btn = document.querySelectorAll('button');
 
 btn.forEach((button) => {
     button.addEventListener('click', () => {
-        alert(button.id);
+        let computerSelection = getComputerChoice();
+        let playerSelection = button.value; 
+
+        console.log(computerSelection);
+        console.log(playerSelection);
+        
     });
 });
 
 
 
-// btn.addEventListener('click', () => {
-//     alert("Hello World!");
-//     let computerSelection = getComputerChoice();
-//     let playerSelection = btn.value; // No idea how to do this yet.
 
-//     playRound(playerSelection, computerSelection);
+
+
+    // playRound(playerSelection, computerSelection);
     
 //     if (playRound(playerSelection, computerSelection) === `playerWinsRound`) {
 //         ++numberOfPlayerWins;
