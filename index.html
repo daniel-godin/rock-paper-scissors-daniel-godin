@@ -6,21 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning - Daniel Godin - Rock Paper Scissors - The Odin Project</title>
     <link rel="stylesheet" href="./style.css">
-    
+    <script src="./js-script.js" delay></script>
 </head>
 <body>
-   <h1>This page is for learning and building the <a href="https://www.theodinproject.com/lessons/foundations-rock-paper-scissors">Rock, Paper, Scissors</a> Game.</h1>
 
-    <p>The entire game is played through your browser's console using the game() function.  There will be a future version to play this game without the need to go into the console.</p>
-    <p class="underline">To play my Rock, Paper, Scissors game, please follow the instructions below:</p>
-    <ul>
-        <li>Open your browser's console.</li>
-        <li>Type `game()` (without the `'s) to start the game function.</li>
-        <li>The game will run 5 times and a winner will be announed in the console.</li>
-        <li>Play as many times as you want.</li>
-    </ul>
+    <h1>TOP's Rock, Paper, Scissors (WITH UI!)</h1>
 
-   <script src="./js-script.js"></script>
+    <div class="container">
+        <div class="btn-container">
+            <button class="btn" id="rock" onclick="playRound()">Rock</button>
+            <button class="btn" id="paper" onclick="playRound()">Paper</button>
+            <button class="btn" id="scissors" onclick="playRound()">Scissors</button>
+
+        </div>
+        <div class="results-container">
+
+        </div>
+    </div>
+
+   
 
   
 
