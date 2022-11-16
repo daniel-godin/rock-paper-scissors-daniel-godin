@@ -12,16 +12,35 @@
     <h1>TOP's Rock, Paper, Scissors (WITH UI!)</h1>
 
     <div class="container">
-        <div class="btn-container">
+        <div class="btn-container section">
             <button class="btn" id="rockBtn" value="Rock">Rock</button>
             <button class="btn" id="paperBtn" value="Paper">Paper</button>
             <button class="btn" id="scissorsBtn" value="Scissors">Scissors</button>
 
         </div>
-        <div class="results-container">
-            <p id="gameResult"></p>
-            <br>
-            <p id="gameScore"></p>
+        <div class="results-container section">
+            <div class="result">
+                <h2>Game Result:</h2>
+                <p id="gameResult"></p>
+            </div>
+            <div class="result">
+                <h2>Game Score (Current Round):</h2>
+                <div class="round-score-container">
+                    <div class="player-score-container score-container">
+                        <h3>Player Score:</h3>
+                        <p id="playerRoundScore"></p>
+                    </div>
+                    <div class="computer-score-container score-container">
+                        <h3>Computer Score:</h3>
+                        <p id="computerRoundScore"></p>
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+        <div class="overall-results-container section">
+            <div id="overallResults"></div>
         </div>
     </div>
 
