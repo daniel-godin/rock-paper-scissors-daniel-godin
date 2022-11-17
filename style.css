@@ -17,6 +17,11 @@ h1, p, ul, li {
     justify-content: center;
 }
 
+#displayChoices {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .btn-container {
 
 }
@@ -35,7 +40,6 @@ h1, p, ul, li {
     border: 1px solid blue;
     background-color: rgba(0, 0, 255, 0.193);
     width: 50%;
-    
     text-align: center;
     display: flex;
     flex-flow: column nowrap;

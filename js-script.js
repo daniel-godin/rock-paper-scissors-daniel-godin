@@ -7,11 +7,17 @@ let gameScore = document.getElementById('gameScore');
 let playerRoundScore = document.getElementById('playerRoundScore');
 let computerRoundScore = document.getElementById('computerRoundScore');
 
+let displayPlayerChoice = document.getElementById('displayPlayerChoice');
+let displayComputerChoice = document.getElementById('displayComputerChoice');
+
 let numberOfPlayerWins = 0;
 let numberOfComputerWins = 0;
 
-playerRoundScore.innerText = numberOfPlayerWins;
-computerRoundScore.innerText = numberOfComputerWins;
+
+
+
+
+
 
 // Function to randomly return either 'Rock', 'Paper', or 'Scissors' for Computer.
 function getComputerChoice() {
@@ -23,38 +29,35 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "Rock" && computerSelection === "Scissors" || 
         playerSelection === "Paper" && computerSelection === "Rock" ||
         playerSelection === "Scissors" && computerSelection === "Paper") {
-            return "playerWinsRound";
+            ++numberOfPlayerWins;
+            return gameResult.textContent = `You Win, ${playerSelection} beats ${computerSelection}.`;
         } else if (playerSelection === computerSelection) {
-            return "tieRound";
+            return gameResult.textContent = `You Tied! You Both Chose ${playerSelection}.`;
         } else {
-            return "computerWinsRound";
+            ++numberOfComputerWins;
+            return gameResult.textContent = `You Lose, ${computerSelection} beats ${playerSelection}.`;
     }
+    
 }
 
-
-
 // Each time a button is clicked, the value of that click is stored in playerSelection
-// 
-
-
 btn.forEach((button) => {
     button.addEventListener('click', () => {
         let playerSelection = button.value;
         let computerSelection = getComputerChoice();
 
+        displayPlayerChoice.innerText = playerSelection;
+        displayComputerChoice.innerText = computerSelection;
+
         playRound(playerSelection, computerSelection); // invokes playRound function
 
-        if (playRound(playerSelection, computerSelection) === "playerWinsRound") {
-            ++numberOfPlayerWins;
-            return gameResult.textContent = `You Win, ${playerSelection} beats ${computerSelection}.`;
-        } else if (playRound(playerSelection, computerSelection) === "tieRound") {
-            return gameResult.textContent = `You Tied! You Both Chose ${playerSelection}.`;
-        } else {
-            ++numberOfComputerWins;
-            return gameResult.textContent = `You Lose, ${computerSelection} beats ${playerSelection}.`;
-        }
-    });      
+        playerRoundScore.innerText = numberOfPlayerWins;
+        computerRoundScore.innerText = numberOfComputerWins;
+    });   
+
 });
+
+  
 
             // Function that runs after the for loop completes its 5 loops.  Uses the updated variables numberOfPlayerWins and numberOfComputerWins to calculate a winner, then returns a string with the results.
         // function checkScoreFunction(numberOfPlayerWins, numberOfComputerWins) {
@@ -170,3 +173,14 @@ function game() {
     // Console.log that displays the checkScoreFunction after the for loop runs and the function completes.
     console.log(checkScoreFunction(numberOfPlayerWins, numberOfComputerWins)); 
 }
+
+
+        // if (playRound(playerSelection, computerSelection) === "playerWinsRound") {
+        //     ++numberOfPlayerWins;
+        //     return gameResult.textContent = `You Win, ${playerSelection} beats ${computerSelection}.`;
+        // } else if (playRound(playerSelection, computerSelection) === "tieRound") {
+        //     return gameResult.textContent = `You Tied! You Both Chose ${playerSelection}.`;
+        // } else {
+        //     ++numberOfComputerWins;
+        //     return gameResult.textContent = `You Lose, ${computerSelection} beats ${playerSelection}.`;
+        // }
