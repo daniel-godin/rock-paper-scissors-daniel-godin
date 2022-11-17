@@ -15,11 +15,20 @@ let roundWinner = document.getElementById('roundWinner');
 let playerGamesWon = document.getElementById('playerGamesWon');
 let computerGamesWon = document.getElementById('computerGamesWon');
 
-let numberOfPlayerWins = 0;
-let numberOfComputerWins = 0;
+displayPlayerChoice.innerText = "Choose Rock, Paper, or Scissors";
+displayComputerChoice.innerText = "Waiting For You To Choose";
+
+playerRoundScore.innerText = "0";
+computerRoundScore.innerText = "0";
+
+playerGamesWon.innerText = "0";
+computerGamesWon.innerText = "0";
 
 let playerRoundsWon = 0;
 let computerRoundsWon = 0;
+
+let numberOfPlayerWins = 0;
+let numberOfComputerWins = 0;
 
 
 // Function to randomly return either 'Rock', 'Paper', or 'Scissors' for Computer Selection.
