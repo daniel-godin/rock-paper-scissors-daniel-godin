@@ -1,5 +1,5 @@
 // Original Assignment:  https://www.theodinproject.com/lessons/foundations-rock-paper-scissors#assignment
-// UI Assignmenet:  https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors#assignment
+// UI Assignment:  https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors#assignment
 
 const btn = document.querySelectorAll('button');
 let gameResult = document.getElementById('gameResult');
@@ -22,17 +22,12 @@ let playerRoundsWon = 0;
 let computerRoundsWon = 0;
 
 
-
-
-
-
-
-// Function to randomly return either 'Rock', 'Paper', or 'Scissors' for Computer.
+// Function to randomly return either 'Rock', 'Paper', or 'Scissors' for Computer Selection.
 function getComputerChoice() {
     let gameArray = ['Rock', 'Paper', 'Scissors'];  
     return gameArray[Math.floor((Math.random() * gameArray.length))];
 }
-// Function to play 1 round and return a string for win/lose/tie.
+// Function that takes player selection and computer selection parameters.  Compares them for winner and then outputs a string, as well as adding to the score.
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "Rock" && computerSelection === "Scissors" || 
         playerSelection === "Paper" && computerSelection === "Rock" ||
@@ -44,11 +39,10 @@ function playRound(playerSelection, computerSelection) {
         } else {
             ++numberOfComputerWins;
             return gameResult.textContent = `You Lose, ${computerSelection} beats ${playerSelection}.`;
-    }
-    
+    }   
 }
 
-// Each time a button is clicked, the value of that click is stored in playerSelection
+// Each time a button is clicked, the value of that click is stored in playerSelection (Rock, Paper, Scissors).
 btn.forEach((button) => {
     button.addEventListener('click', () => {
         let playerSelection = button.value;
@@ -65,48 +59,93 @@ btn.forEach((button) => {
         playerGamesWon.innerText = playerRoundsWon;
         computerGamesWon.innerText = computerRoundsWon;
 
-        if (numberOfPlayerWins === 5) {
-            numberOfPlayerWins = 0;
-            numberOfComputerWins = 0;
-            ++playerRoundsWon;
-            roundWinner.innerText = "YOU WON THE ROUND!";
-        } else if (numberOfComputerWins === 5) {
-            numberOfPlayerWins = 0;
-            numberOfComputerWins = 0;
-            ++computerRoundsWon;
-            roundWinner.innerText = "You lost the round.  Computer Wins!";
-        } else {
-            roundWinner.innerText = "Keep Playing";
-        }
-    });   
+        // Testing:  Create a function and function call to do what your if(===5) does.  Clean up the code.
+        checkScoreFunction(numberOfPlayerWins, numberOfComputerWins);
 
+
+
+
+
+
+
+
+
+
+
+
+        // I wonder if I could make this a function somehow, or some easier/better way to do this.
+        // Once the player or computer reaches 5 wins in a round, they win the round and the round resets.
+
+        // if (numberOfPlayerWins === 5) {
+        //     numberOfPlayerWins = 0;
+        //     numberOfComputerWins = 0;
+        //     ++playerRoundsWon;
+        //     roundWinner.innerText = "YOU WON THE ROUND!";
+        // } else if (numberOfComputerWins === 5) {
+        //     numberOfPlayerWins = 0;
+        //     numberOfComputerWins = 0;
+        //     ++computerRoundsWon;
+        //     roundWinner.innerText = "You lost the round.  Computer Wins!";
+        // } else {
+        //     roundWinner.innerText = "Keep Playing";
+        // }
+    });   
 });
 
-  
+function checkScoreFunction(numberOfPlayerWins, numberOfComputerWins) {
 
-            // Function that runs after the for loop completes its 5 loops.  Uses the updated variables numberOfPlayerWins and numberOfComputerWins to calculate a winner, then returns a string with the results.
-        // function checkScoreFunction(numberOfPlayerWins, numberOfComputerWins) {
-        //     if (numberOfPlayerWins > numberOfComputerWins) {
-        //         return `You win the game!  Player Score:${numberOfPlayerWins} vs. Computer Score:${numberOfComputerWins}.`;
-        //     } else if (numberOfComputerWins > numberOfPlayerWins) {
-        //         return `You lose the game.  Computer Score:${numberOfComputerWins} vs. Player Score:${numberOfPlayerWins}.`;
-        //     } else {
-        //         return `Tie Game!  Try Again!  Player Score:${numberOfPlayerWins} vs. Computer Score:${numberOfComputerWins}.`;
-        //     }
-        // }
+    
+    
+    if (numberOfPlayerWins === 5) {
+        reset();
+        // numberOfPlayerWins = 0;
+        // numberOfComputerWins = 0;
+        ++playerRoundsWon;
+        playerGamesWon.innerText = playerRoundsWon;
+        computerGamesWon.innerText = computerRoundsWon;
+        return roundWinner.innerText = "YOU WON THE ROUND!";
+    } else if (numberOfComputerWins === 5) {
+        reset();
+        // numberOfPlayerWins = 0;
+        // numberOfComputerWins = 0;
+        ++computerRoundsWon;
+        playerGamesWon.innerText = playerRoundsWon;
+        computerGamesWon.innerText = computerRoundsWon;
+        return roundWinner.innerText = "You lost the round.  Computer Wins!";
+    } else if (numberOfPlayerWins > numberOfComputerWins) {
+        return roundWinner.innerText = "You're Winning.  Keep Going!";
+    } else if (numberOfComputerWins > numberOfPlayerWins) {
+        return roundWinner.innerText = "You're Losing!  Don't let them win!";
+    } else if (numberOfPlayerWins === numberOfComputerWins) {
+        return roundWinner.innerText = "You're Tied!"; 
+    } else {
+        return roundWinner.innerText = "Keep Playing";
+    }
+}
+
+function reset() {
+    numberOfPlayerWins = numberOfComputerWins = 0;
+
+    // playerRoundScore.innerText = numberOfPlayerWins;
+    // computerRoundScore.innerText = numberOfComputerWins;
+
+    playerRoundScore.innerText = "0";
+    computerRoundScore.innerText = "0";
 
 
-        // checkScoreFunction(numberOfPlayerWins, numberOfComputerWins);
+}
 
-        // function checkScoreFunction(numberOfPlayerWins, numberOfComputerWins) {
-        //     if (numberOfPlayerWins > numberOfComputerWins) {
-        //         return gameScore.textContent(`You win the game!  Player Score:${numberOfPlayerWins} vs. Computer Score:${numberOfComputerWins}.`);
-        //     } else if (numberOfComputerWins > numberOfPlayerWins) {
-        //         return gameScore.textContent(`You lose the game.  Computer Score:${numberOfComputerWins} vs. Player Score:${numberOfPlayerWins}.`);
-        //     } else {
-        //         return gameScore.textContent(`Tie Game!  Try Again!  Player Score:${numberOfPlayerWins} vs. Computer Score:${numberOfComputerWins}.`);
-        //     }
-        // }
+
+
+
+//     if (numberOfPlayerWins > numberOfComputerWins) {
+//         return gameScore.textContent(`You win the game!  Player Score:${numberOfPlayerWins} vs. Computer Score:${numberOfComputerWins}.`);
+//     } else if (numberOfComputerWins > numberOfPlayerWins) {
+//         return gameScore.textContent(`You lose the game.  Computer Score:${numberOfComputerWins} vs. Player Score:${numberOfPlayerWins}.`);
+//     } else {
+//         return gameScore.textContent(`Tie Game!  Try Again!  Player Score:${numberOfPlayerWins} vs. Computer Score:${numberOfComputerWins}.`);
+//     }
+// }
         
 
         // if (playRound(playerSelection, computerSelection) === `playerWinsRound`) {
