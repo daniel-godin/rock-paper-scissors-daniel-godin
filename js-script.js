@@ -10,8 +10,16 @@ let computerRoundScore = document.getElementById('computerRoundScore');
 let displayPlayerChoice = document.getElementById('displayPlayerChoice');
 let displayComputerChoice = document.getElementById('displayComputerChoice');
 
+let roundWinner = document.getElementById('roundWinner');
+
+let playerGamesWon = document.getElementById('playerGamesWon');
+let computerGamesWon = document.getElementById('computerGamesWon');
+
 let numberOfPlayerWins = 0;
 let numberOfComputerWins = 0;
+
+let playerRoundsWon = 0;
+let computerRoundsWon = 0;
 
 
 
@@ -53,6 +61,23 @@ btn.forEach((button) => {
 
         playerRoundScore.innerText = numberOfPlayerWins;
         computerRoundScore.innerText = numberOfComputerWins;
+
+        playerGamesWon.innerText = playerRoundsWon;
+        computerGamesWon.innerText = computerRoundsWon;
+
+        if (numberOfPlayerWins === 5) {
+            numberOfPlayerWins = 0;
+            numberOfComputerWins = 0;
+            ++playerRoundsWon;
+            roundWinner.innerText = "YOU WON THE ROUND!";
+        } else if (numberOfComputerWins === 5) {
+            numberOfPlayerWins = 0;
+            numberOfComputerWins = 0;
+            ++computerRoundsWon;
+            roundWinner.innerText = "You lost the round.  Computer Wins!";
+        } else {
+            roundWinner.innerText = "Keep Playing";
+        }
     });   
 
 });

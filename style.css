@@ -77,3 +77,11 @@ p {
 .overall-results-container {
     height: 50px;
 }
+
+#displayRoundsWon {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
