@@ -1,10 +1,88 @@
-h1, p, ul, li {
-    text-align: center;
+:root {
+
 }
 
-.underline {
-    text-decoration: underline;
+html {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(209, 92, 209, 0.436);
+    box-sizing: border-box;
 }
+
+/* #headerContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+}
+
+#titleContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid blue;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* Alternative Version */
+#headerContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+}
+
+#titleContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid blue;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+}
+
+#roundsWonContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+#roundsWonHeadlineContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#displayRoundsWonContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    border: 1 solid black;
+    width: 100%;
+    justify-content: space-evenly;
+
+
+}
+
+.title-and-info-class {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+/* End of Alternative Version */
+
 
 .section {
     margin-top: 20px;
@@ -70,19 +148,22 @@ h2 {
 
 
 
-p {
-    margin: 0;
-    padding: 0;
-}
-
 .overall-results-container {
     
 }
 
-#displayRoundsWon {
+/* #displayRoundsWon {
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-evenly;
+} */
+
+footer {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    border-top: 1px dotted black;
 }
