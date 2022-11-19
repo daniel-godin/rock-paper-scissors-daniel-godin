@@ -1,6 +1,29 @@
 // Original Assignment:  https://www.theodinproject.com/lessons/foundations-rock-paper-scissors#assignment
 // UI Assignment:  https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors#assignment
 
+let headerContainer = document.getElementById('headerContainer');
+
+let titleContainer = document.getElementById('titleContainer');
+
+let roundsWonContainer = document.getElementById('roundsWonContainer');
+let roundsWonHeadlineContainer = document.getElementById('roundsWonHeadlineContainer');
+let displayRoundsWonContainer = document.getElementById('displayRoundsWonContainer');
+
+let roundsWonHeadline = document.getElementById('roundsWonHeadline');
+let playerGamesWonHeadline = document.getElementById('playerGamesWonHeadline');
+
+let computerGamesWonHeadline = document.getElementById('computerGamesWonHeadline');
+
+
+
+let playerGamesWon = document.getElementById('playerGamesWon');
+let computerGamesWon = document.getElementById('computerGamesWon');
+let box = document.getElementsByClassName('box');
+
+
+
+
+
 const btn = document.querySelectorAll('button');
 let gameResult = document.getElementById('gameResult');
 let gameScore = document.getElementById('gameScore');
@@ -12,8 +35,6 @@ let displayComputerChoice = document.getElementById('displayComputerChoice');
 
 let roundWinner = document.getElementById('roundWinner');
 
-let playerGamesWon = document.getElementById('playerGamesWon');
-let computerGamesWon = document.getElementById('computerGamesWon');
 
 displayPlayerChoice.innerText = "Choose Rock, Paper, or Scissors";
 displayComputerChoice.innerText = "Waiting For You To Choose";
@@ -21,14 +42,38 @@ displayComputerChoice.innerText = "Waiting For You To Choose";
 playerRoundScore.innerText = "0";
 computerRoundScore.innerText = "0";
 
-playerGamesWon.innerText = "0";
-computerGamesWon.innerText = "0";
+// playerGamesWon.innerText = "0";
+// computerGamesWon.innerText = "0";
 
 let playerRoundsWon = 0;
 let computerRoundsWon = 0;
 
 let numberOfPlayerWins = 0;
 let numberOfComputerWins = 0;
+
+function changeHeaderOnClick() {
+    playerGamesWon.innerText = playerRoundsWon;
+    computerGamesWon.innerText = computerRoundsWon;
+
+    roundsWonHeadline.innerText = "Rounds Won:";
+    playerGamesWonHeadline.innerText = "Player:";
+    computerGamesWonHeadline.innerText = "Computer:";
+
+    titleContainer.style.cssText = 'display: flex; flex-flow: column nowrap; border: 1px solid blue; justify-content: center; align-items: center; flex: 2';
+
+    roundsWonContainer.style.cssText = 'display: flex; justify-content: center; align-items: center; width: 100%; flex: 1';
+
+    roundsWonHeadlineContainer.style.cssText = '';
+
+    displayRoundsWonContainer.style.cssText = 'display: flex; flex-flow: row nowrap; border: 1 solid black; justify-content: space-evenly; width: 100%;';
+
+    for (i = 0; i < box.length; i++) {
+        box[i].style.cssText = 'display: flex; flex-flow: column nowrap; justify-content: center; align-items: center;';
+    }
+
+
+
+}
 
 
 // Function to randomly return either 'Rock', 'Paper', or 'Scissors' for Computer Selection.
@@ -61,6 +106,8 @@ btn.forEach((button) => {
         displayComputerChoice.innerText = computerSelection;
 
         playRound(playerSelection, computerSelection); // invokes playRound function
+
+        changeHeaderOnClick();
 
         playerRoundScore.innerText = numberOfPlayerWins;
         computerRoundScore.innerText = numberOfComputerWins;

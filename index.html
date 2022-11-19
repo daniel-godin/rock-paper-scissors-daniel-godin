@@ -9,7 +9,8 @@
 </head>
 <body>
 <div id="pageContainer">
-    <div id="headerContainer">
+
+    <!-- <div id="headerContainer">
         <div id="titleContainer">
             <h1>Choose: Rock, Paper, or Scissors</h1>
             <p>First to five wins... Wins the round!</p>
@@ -17,7 +18,7 @@
         <div id="roundsWonContainer">
 
         </div>
-    </div>
+    </div> -->
 
     <!-- Alternative Version -->
     <div id="headerContainer">
@@ -26,24 +27,39 @@
             <p>First to five wins... Wins the round!</p>
         </div>
         <div id="roundsWonContainer">
+
             <div id="roundsWonHeadlineContainer">
-                <h2>Rounds Won:</h2>
+                <h2 id="roundsWonHeadline"></h2>
             </div>
+
             <div id="displayRoundsWonContainer">
                 <div class="title-and-info-class">
-                    <h3>Player:</h2>
+                    <h3 id="playerGamesWonHeadline"></h3>
                     <p id="playerGamesWon"></p>
                 </div>
                 <div class="title-and-info-class">
-                    <h3>Computer:</h2>
+                    <h3 id="computerGamesWonHeadline"></h3>
                     <p id="computerGamesWon"></p>
                 </div>
             </div>
+
         </div>
     </div>
 
 
-
+    <div id="roundsWonHeadlineContainer">
+        <h2>Rounds Won:</h2>
+    </div>
+    <div id="displayRoundsWonContainer">
+        <div class="title-and-info-class">
+            <h3>Player:</h3>
+            <p id="playerGamesWon"></p>
+        </div>
+        <div class="title-and-info-class">
+            <h3>Computer:</h3>
+            <p id="computerGamesWon"></p>
+        </div>
+    </div>
 
 
 
